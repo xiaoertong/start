@@ -1,0 +1,20 @@
+version: '3.5'
+services:
+  queen:
+    image: registry.api.weibo.com/weiboad/ad_server:test_v1
+    restart: always
+    container_name: queen
+    environment:
+      - LD_LIBRARY_PATH=/data0/vad/queen/lib
+    network_mode: "host"
+    volumes:
+      - /data0/vad/sfst_data:/data0/vad/sfst_data
+      - /data0/collect/queen:/data0/collect/queen
+      - /data0/vad/fisher/data:/data0/vad/fisher/data
+      - /data0/vad/fisher/stats:/data0/vad/fisher/stats
+      - /data0/vad/fisher/log:/data0/vad/fisher/log
+      - /data0/vad/queen/log:/data0/vad/queen/log
+      - /data0/vad/fisher/ranker/conf:/data0/vad/fisher/ranker/conf
+      - /home/w/corefile:/home/w/corefile
+      - /data0/vad/fisher/env:/data0/vad/fisher/env
+
